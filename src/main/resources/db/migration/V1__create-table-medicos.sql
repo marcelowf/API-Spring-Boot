@@ -6,6 +6,7 @@ create table medicos(
     crm varchar(6) not null unique,
     telefone varchar(9) not null,
     especialidade varchar(100) not null,
+    ativo tinyint not null,
     logradouro varchar(100) not null,
     bairro varchar(100) not null,
     cep varchar(9) not null,

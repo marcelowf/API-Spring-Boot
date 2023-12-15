@@ -1,5 +1,5 @@
 package met.voll.api.medico;
 
 public enum Especialidade {
-	 ORTOPEDIA, CARDIOLOGIA, GINECOLOGIA, DERMATOLOGIA;
+	ORTOPEDIA, CARDIOLOGIA, GINECOLOGIA, DERMATOLOGIA;
 }
