@@ -1,9 +1,7 @@
-package met.voll.api.medico;
+package met.voll.api.paciente;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,34 +12,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import met.voll.api.endereco.Endereco;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
+@Table(name = "pacientes")
+@Entity(name = "Paciente")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medico {
+public class Paciente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	private String cpf;
 	private String email;
-	private String crm;
 	private String telefone;
-
-	@Enumerated(EnumType.STRING)
-	private Especialidade especialidade;
-
+	
 	@Embedded
 	private Endereco endereco;
-
-	public Medico(DadosCadastroMedico dados) {
+	
+	public Paciente(DadosCadastroPaciente dados) {
 		this.nome = dados.nome();
+		this.cpf = dados.cpf();
 		this.email = dados.email();
-		this.crm = dados.crm();
 		this.telefone = dados.telefone();
-		this.especialidade = dados.especialidade();
 		this.endereco = new Endereco(dados.endereco());
 	}
 }
